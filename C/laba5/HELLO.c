@@ -3,14 +3,14 @@
 #include <string.h>
 #include <stdlib.h>
 
-/* Ñòðóêòóðà, îïèñûâàþùàÿ ýëåìåíò äâóíàïðàâëåííîãî ñïèñêà */
+/* Ã‘Ã²Ã°Ã³ÃªÃ²Ã³Ã°Ã , Ã®Ã¯Ã¨Ã±Ã»Ã¢Ã Ã¾Ã¹Ã Ã¿ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã² Ã¤Ã¢Ã³Ã­Ã Ã¯Ã°Ã Ã¢Ã«Ã¥Ã­Ã­Ã®Ã£Ã® Ã±Ã¯Ã¨Ã±ÃªÃ  */
 typedef struct Item {
     int digit;
     struct Item* next;
     struct Item* prev;
 } Item;
 
-/* Ñòðóêòóðà, îïèñûâàþùàÿ ìíîãîðàçðÿäíîå ÷èñëî */
+/* Ã‘Ã²Ã°Ã³ÃªÃ²Ã³Ã°Ã , Ã®Ã¯Ã¨Ã±Ã»Ã¢Ã Ã¾Ã¹Ã Ã¿ Ã¬Ã­Ã®Ã£Ã®Ã°Ã Ã§Ã°Ã¿Ã¤Ã­Ã®Ã¥ Ã·Ã¨Ã±Ã«Ã® */
 typedef struct MNumber {
     Item* head;
     Item* tail;
@@ -58,6 +58,10 @@ MNumber CreateMNumber(const char initStr[])
 void AddDigit(MNumber* number, int digit)
 {
     Item* p = (Item*)malloc(sizeof(Item));
+    if (!p) {
+        printf("Allocation failure.");
+        exit(0);
+    }
     p->digit = digit;
     p->next = p->prev = NULL;
     if (number->head == NULL) {
