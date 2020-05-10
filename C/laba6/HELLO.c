@@ -2,21 +2,21 @@
 #include <stdlib.h>
 #include <malloc.h>
 
-/* Ñòðóêòóðà, îïèñûâàþùàÿ ýëåìåíò äâóíàïðàâëåííîãî ñïèñêà */
+/* Ð¡Ñ‚Ñ€ÑƒÐºÑ‚ÑƒÑ€Ð°, Ð¾Ð¿Ð¸ÑÑ‹Ð²Ð°ÑŽÑ‰Ð°Ñ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð´Ð²ÑƒÐ½Ð°Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð½Ð¾Ð³Ð¾ ÑÐ¿Ð¸ÑÐºÐ° */
 typedef struct ItemList {
 	int digit;
 	struct ItemList* next;
 	struct ItemList* prev;
 } ItemList;
 
-/* Ñòðóêòóðà, îïèñûâàþùàÿ ìíîãîðàçðÿäíîå ÷èñëî */
+/* Ð¡Ñ‚Ñ€ÑƒÐºÑ‚ÑƒÑ€Ð°, Ð¾Ð¿Ð¸ÑÑ‹Ð²Ð°ÑŽÑ‰Ð°Ñ Ð¼Ð½Ð¾Ð³Ð¾Ñ€Ð°Ð·Ñ€ÑÐ´Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ */
 typedef struct MNumber {
 	ItemList* head;
 	ItemList* tail;
 	int count;
 } MNumber;
 
-/* Ñòðóêòóðà, îïèñûâàþùàÿ óçåë äåðåâà */
+/* Ð¡Ñ‚Ñ€ÑƒÐºÑ‚ÑƒÑ€Ð°, Ð¾Ð¿Ð¸ÑÑ‹Ð²Ð°ÑŽÑ‰Ð°Ñ ÑƒÐ·ÐµÐ» Ð´ÐµÑ€ÐµÐ²Ð° */
 typedef struct ItemTree {
 	int data;
 	struct ItemTree* left;
@@ -88,6 +88,10 @@ void Delete(ItemTree** node, ItemTree** prevNode)
 	else {
 		ItemTree* newNode = (ItemTree*)calloc(1, sizeof(ItemTree));
 		ItemTree* newNodePrev = (ItemTree*)calloc(1, sizeof(ItemTree));
+		if (!newNode || !newNodePrev) {
+			printf("Allocation failure.");
+			exit(0);
+		}
 		newNode = (*node)->left;
 		newNodePrev = (*node)->left;
 		while (newNode->right != NULL) {
@@ -117,6 +121,10 @@ void AddNode(int data, ItemTree **node)
 {
 	if (*node == NULL) {
 		*node = (ItemTree*)calloc(1, sizeof(ItemTree));
+		if (!node) {
+			printf("Allocation failure.");
+			exit(0);
+		}
 		(*node)->data = data;
 		(*node)->left = (*node)->right = NULL;
 	}
@@ -166,6 +174,10 @@ MNumber CreateMNumber(const char initStr[])
 void AddDigit(MNumber* number, int digit)
 {
 	ItemList* p = (ItemList*)malloc(sizeof(ItemList));
+	if (!p) {
+		printf("Allocation failure.");
+		exit(0);
+	}
 	p->digit = digit;
 	p->next = p->prev = NULL;
 	if (number->head == NULL) {
