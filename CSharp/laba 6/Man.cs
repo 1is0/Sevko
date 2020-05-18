@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace laba_6
 {
-    class Man
+    abstract class Man
     {
         public int Age { get; set; }
         public string Name { get; set; }
@@ -42,9 +42,7 @@ namespace laba_6
             }
         }
         // Методы
-        public virtual void Print(int i)
-        {
-            Console.WriteLine($"{i}. Name: {Name}, Age: {Age}, Country: {Country}\n");
-        }
+        public abstract void Print(int i);
     }
 }
+
