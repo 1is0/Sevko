@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +14,7 @@ namespace laba_8
         Fourth,
         Fifth
     }
-    class Student : Man
+    abstract class Student : Man
     {
         public string University { get; set; }
         public Course Cours { get; set; }
@@ -27,11 +27,6 @@ namespace laba_8
         {
             University = university;
             Cours = cor;
-        }
-        public override void Print(int i)
-        {
-            Console.WriteLine($"{i}. Name: {Name}, Age: {Age}, Country: {Country}\n" +
-           $"University: {University}, Course: {(int)Cours}\n");
         }
     }
 }
