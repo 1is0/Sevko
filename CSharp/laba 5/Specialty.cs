@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,9 +33,15 @@ namespace laba_5
         }
         public override void Print(int i)
         {
-            Console.WriteLine($"{i}. Name: {Name}, Age: {Age}, Country: {Country}\n" +
-            $"University: {University}, Specialty: {Spec}, Course: {(int)Cours}\n" +
-            $"Laziness coefficient: {dataStud.lazinessCoefficient}%, Chance of deduction: {dataStud.chanceOfDeduction}%\n");
+            Console.WriteLine($"{i}. Name: {Name}\n" +
+                $"Age: {Age}\n" +
+                $"Country: {Country}\n" +
+                $"University: {University}\n" +
+                $"Specialty: {Spec}\n" +
+                $"Course: {(int)Cours}\n" +
+                $"Laziness coefficient: {dataStud.lazinessCoefficient}%\n" +
+                $"Chance of deduction: {dataStud.chanceOfDeduction}%\n");
         }
     }
 }
+
