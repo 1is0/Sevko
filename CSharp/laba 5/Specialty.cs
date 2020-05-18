@@ -15,10 +15,7 @@ namespace laba_5
     {
         DataStud dataStud;
         public string Spec { get; set; }
-        public Specialty(int number)
-        {
-            data = new Student[number];
-        }
+        public Specialty(int number) : base(number) { }
         public Specialty() : base()
         {
             Spec = "IaTP";
