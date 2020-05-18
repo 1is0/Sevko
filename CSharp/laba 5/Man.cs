@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace laba_5
 {
-    class Man
+    abstract class Man
     {
         public int Age { get; set; }
         public string Name { get; set; }
