@@ -23,6 +23,10 @@ namespace laba_6
             University = "BSUIR";
             Cours = Course.First;
         }
+        public Student(int number)
+        {
+            data = new Student[number];
+        }
         public Student(string name, int age, string country, string university, Course cor) : base(name, age, country)
         {
             University = university;
@@ -30,8 +34,11 @@ namespace laba_6
         }
         public override void Print(int i)
         {
-            Console.WriteLine($"{i}. Name: {Name}, Age: {Age}, Country: {Country}\n" +
-           $"University: {University}, Course: {(int)Cours}\n");
+            Console.WriteLine($"{i}. Name: {Name}\n" +
+               $"Age: {Age}\n" +
+               $"Country: {Country}\n" +
+               $"University: {University}\n" +
+               $"Course: {(int)Cours}\n");
         }
     }
 }
