@@ -42,9 +42,6 @@ namespace laba_5
             }
         }
         // Методы
-        public virtual void Print(int i)
-        {
-            Console.WriteLine($"{i}. Name: {Name}, Age: {Age}, Country: {Country}\n");
-        }
+                public abstract void Print(int i);
     }
 }
