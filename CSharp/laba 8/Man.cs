@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +11,7 @@ namespace laba_8
         public int Age { get; set; }
         public string Name { get; set; }
         public string Country { get; set; }
+        public Man[] data;
         // Конструкторы
         public Man()
         {
@@ -18,11 +19,27 @@ namespace laba_8
             Age = 18;
             Country = "Belarus";
         }
+        public Man(int number)
+        {
+            data = new Man[number];
+        }
         public Man(string name, int age, string country)
         {
             Age = age;
             Name = name;
             Country = country;
+        }
+        // Индексатор
+        public Man this[int index]
+        {
+            get
+            {
+                return data[index];
+            }
+            set
+            {
+                data[index] = value;
+            }
         }
         // Методы
         public virtual void Print(int i)
