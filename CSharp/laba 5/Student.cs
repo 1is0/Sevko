@@ -34,8 +34,11 @@ namespace laba_5
         }
         public override void Print(int i)
         {
-            Console.WriteLine($"{i}. Name: {Name}, Age: {Age}, Country: {Country}\n" +
-           $"University: {University}, Course: {(int)Cours}\n");
+            Console.WriteLine($"{i}. Name: {Name}\n" +
+               $"Age: {Age}\n" +
+               $"Country: {Country}\n" +
+               $"University: {University}\n" +
+               $"Course: {(int)Cours}\n");
         }
     }
 }
