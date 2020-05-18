@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +10,6 @@ namespace laba_5
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("MANS");
-            Man man = new Man(2);
-            man[0] = new Man();
-            man[1] = new Man("Roman", 19, "Belarus");
-            for (int i = 0; i < 2; i++)
-            {
-                man[i].Print(i + 1);
-            }
             Console.WriteLine("STUDENTS");
             Student stud = new Student(2);
             stud[0] = new Student();
@@ -37,3 +29,4 @@ namespace laba_5
         }
     }
 }
+
