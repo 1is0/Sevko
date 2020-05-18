@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,7 @@ namespace laba_6
         public int lazinessCoefficient;
         public int chanceOfDeduction;
     }
-    class Specialty : Student, IAverageMark, IComparable<Specialty>
+    class Specialty : Student, IAverageMark, IComparable<Specialty>, ICloneable
     {
         DataStud dataStud;
         public string Spec { get; set; }
@@ -51,13 +51,23 @@ namespace laba_6
                 return 0;
             }
         }
+        public object Clone()
+        {
+            return (Specialty)this.MemberwiseClone();
+        }
         public override void Print(int i)
         {
             double aver = averMark();
-            Console.WriteLine($"{i}. Name: {Name}, Age: {Age}, Country: {Country}\n" +
-            $"University: {University}, Specialty: {Spec}, Course: {(int)Cours}\n" +
-            $"Laziness coefficient: {dataStud.lazinessCoefficient}%, Chance of deduction: {dataStud.chanceOfDeduction}%\n" +
-            $"Average mark: {aver.ToString("0.00")}, Retake exam: {checkRetake()}\n");
+            Console.WriteLine($"{i}. Name: {Name}\n" +
+                $"Age: {Age}\n" +
+                $"Country: {Country}\n" +
+                $"University: {University}\n" +
+                $"Specialty: {Spec}\n" +
+                $"Course: {(int)Cours}\n" +
+                $"Laziness coefficient: {dataStud.lazinessCoefficient}%\n" +
+                $"Chance of deduction: {dataStud.chanceOfDeduction}%\n" +
+                $"Average mark: {aver.ToString("0.00")}\n" +
+                $"Retake exam: {checkRetake()}\n");
         }
         public double averMark() {
             double averMark = 0;
