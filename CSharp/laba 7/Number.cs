@@ -1,25 +1,22 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace laba_7
 {
     class Number : IComparable
     {
-        int Integer { get; set; }
-        int NatNum { get; set; }
+        public int Integer { get; set; }
+        public int NatNum { get; set; }
         
         public Number() : this(1, 1) { }
 
         public Number(int i, int n)
         {
-            if (n == 0)
-            {
-                throw new Exception("Denominator cannot be zero.");
-            }
             Integer = i;
             NatNum = n;
         }
@@ -71,13 +68,13 @@ namespace laba_7
         public void Print()
         {
             Console.WriteLine(((double)Integer / NatNum).ToString("0.00"));
-            if (Integer > NatNum)
+            if (Integer > NatNum && Integer % NatNum != 0)
             {
                 int intPart = Integer / NatNum;
                 int numOfRealPart = Integer % NatNum;
                 Console.WriteLine(intPart + " " + numOfRealPart + "/" + NatNum);
             }
-            if(NatNum == 0)
+            if(NatNum == 1)
             {
                 Console.WriteLine(Integer);
             }
@@ -96,9 +93,9 @@ namespace laba_7
             Regex regex2 = new Regex(@"\d\/\d");
             if (Int32.TryParse(str, out int res1))
             {
-                num.Integer = Int32.Parse(str);
+                num.Integer = res1;
             }
-            else if (Double.TryParse(str, out double res2))
+            else if (Double.TryParse(str, NumberStyles.Any, CultureInfo.InvariantCulture, out double res2))
             {
                 string[] numStr = new string[2];
                 numStr = str.Split('.');
