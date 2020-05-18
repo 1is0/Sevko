@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ namespace laba_8
         public int chanceOfDeduction;
     }
 
-    class Specialty : Student, IAverageMark, IComparable<Specialty>
+    class Specialty : Student, IAverageMark, IComparable<Specialty>, ICloneable
     {
         public delegate void StudentSpec(string message);
         public event StudentSpec NotifyMark;
@@ -55,6 +55,10 @@ namespace laba_8
             {
                 return 0;
             }
+        }
+        public object Clone()
+        {
+            return (Specialty)this.MemberwiseClone();
         }
         public override void Print(int i)
         {
